@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login pagina</title>
-
 </head>
 <body>
     <center>
@@ -28,5 +27,21 @@
         <input type="submit" value="Enviar">
      </form>
     </center>
+
+      <script>
+        const formulario = document.querySelector('form');
+
+        formulario.addEventListener('submit', function(event) {
+
+            event.preventDefault();
+
+            const nome = document.getElementById('fname').value;
+            const email = document.getElementById('femail').value;
+
+            alert(`Olá ${nome}! Seu login com o e-mail ${email} foi enviado com sucesso.`);
+            
+            console.log("Dados prontos para envio!");
+        });
+    </script>
 </body>
 </html>
