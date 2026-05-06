@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Compras</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <form action="/enviar-pedido"> 
+        <h1>Escolha sua Receita</h1>
+        
+        <label for="receitas">Selecione o doce desejado:</label><br>
+        <select id="receitas" name="receitas">
+            <option value="bolo_chocolate">Bolo de Chocolate</option>
+            <option value="brigadeiro_gourmet">Brigadeiro Gourmet</option>
+            <option value="torta_limao">Torta de Limão</option>
+            <option value="donut_morango">Donut de Morango</option>
+        </select>
+        
+        <br><br>
+        
+        <label for="quantidade">Quantidade:</label><br>
+        <input type="number" id="quantidade" name="quantidade" min="1" value="1">
+        
+        <br><br>
+        
+        <input type="submit" value="Confirmar Pedido">
+    </form>
+
+</body>
+</html>
+

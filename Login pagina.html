@@ -43,6 +43,10 @@
             margin-top: 20px;
         }
 
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+
         .mensagem-erro {
             color: red;
             font-size: 14px;
@@ -69,7 +73,7 @@
     </div>
 
     <script>
-        // Dados de um usuário que já "existe" no sistema
+        // Dados de teste
         const USUARIO_VALIDO = {
             email: "teste@email.com",
             senha: "123456"
@@ -79,20 +83,21 @@
         const msgErro = document.getElementById('erro');
 
         formulario.addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede a página de recarregar
+            event.preventDefault(); // Impede o recarregamento da página
 
             const emailDigitado = document.getElementById('femail').value;
             const senhaDigitada = document.getElementById('fsenha').value;
 
-            // Verifica se os dados coincidem com o usuário "cadastrado"
             if (emailDigitado === USUARIO_VALIDO.email && senhaDigitada === USUARIO_VALIDO.senha) {
-                alert("Login realizado com sucesso! Bem-vindo.");
+                // Se os dados estiverem corretos:
                 msgErro.style.display = "none";
-                // Aqui você poderia redirecionar: window.location.href = "home.html";
+                alert("Login realizado com sucesso! Redirecionando...");
+                
+                // Redireciona para a página desejada
+                window.location.href = "compras.html"; 
             } else {
-                // Se estiver errado, mostra a mensagem de cadastro
+                // Se estiver errado, mostra a mensagem de erro
                 msgErro.style.display = "block";
-                alert("Acesso negado: Usuário incorreto ou não cadastrado.");
             }
         });
     </script>
