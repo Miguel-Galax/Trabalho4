@@ -2,24 +2,37 @@
 <html lang="pt-BR">
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="login.css">
     <meta charset="UTF-8">
     <style>
-          borda-texto {
-    border: 2px solid #333;
-    padding: 10px;
-    border-radius: 5px; 
-    display: inline-block;
-          }
         body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-          }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .login-form {
+            border: 2px solid #333;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+
+        h1 { text-align: center; margin-top: 0; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; margin-top: 10px; }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
 
         input[type="submit"] {
             background-color: #333;
@@ -27,63 +40,60 @@
             border: none;
             cursor: pointer;
             font-size: 16px;
+            margin-top: 20px;
         }
 
-        h1 { text-align: center; margin-top: 0; }
-        .input-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; }
-        input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;}
-
-            .login-form {
-            border: 2px solid #333;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            width: 300px;}
-</style>
+        .mensagem-erro {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+            display: none; /* Escondido por padrão */
+        }
+    </style>
 </head>
 <body>
-    <center>
-    
-     <form class="borda de texto" action="qualquer coisa.html">
-        <h1>
-            Login
-        </h1><br>
-        <label for="fname" name="fname" required>Nome</label><br>
-        <input type="text" id="fname" name="fname" required><br>
 
-        <label for="fsenha" name="fsenha" required>Senha</label><br>
-        <input type="password" id="fsenha" name="fsenha" required><br>
+    <div class="login-form">
+        <h1>Login</h1>
+        <form id="meuFormulario">
+            <label for="femail">Email</label>
+            <input type="email" id="femail" placeholder="exemplo@email.com" required>
 
-        <label for="ftele">Telefone</label><br>
-        <input type="tel" id="ftele" name="ftele" required><br>
+            <label for="fsenha">Senha</label>
+            <input type="password" id="fsenha" placeholder="Sua senha" required>
 
-        <label for="femail">Email</label><br>
-        <input type="email" id="femail" name="femail" required><br>
+            <input type="submit" value="Entrar">
+        </form>
+        <div id="erro" class="mensagem-erro">Usuário não encontrado. Por favor, cadastre-se!</div>
+    </div>
 
-        <input type="submit" value="Enviar">
-     </form>
-    </center>
+    <script>
+        // Dados de um usuário que já "existe" no sistema
+        const USUARIO_VALIDO = {
+            email: "teste@email.com",
+            senha: "123"
+        };
 
-      <script>
-        const formulario = document.querySelector('form');
+        const formulario = document.getElementById('meuFormulario');
+        const msgErro = document.getElementById('erro');
 
         formulario.addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede a página de recarregar
 
-            event.preventDefault();
+            const emailDigitado = document.getElementById('femail').value;
+            const senhaDigitada = document.getElementById('fsenha').value;
 
-            const nome = document.getElementById('fname').value;
-            const email = document.getElementById('femail').value;
-
-            alert(`Olá ${nome}! Seu login com o e-mail ${email} foi enviado com sucesso.`);
-            
-            console.log("Dados prontos para envio!");
+            // Verifica se os dados coincidem com o usuário "cadastrado"
+            if (emailDigitado === USUARIO_VALIDO.email && senhaDigitada === USUARIO_VALIDO.senha) {
+                alert("Login realizado com sucesso! Bem-vindo.");
+                msgErro.style.display = "none";
+                // Aqui você poderia redirecionar: window.location.href = "home.html";
+            } else {
+                // Se estiver errado, mostra a mensagem de cadastro
+                msgErro.style.display = "block";
+                alert("Acesso negado: Usuário incorreto ou não cadastrado.");
+            }
         });
     </script>
 </body>
