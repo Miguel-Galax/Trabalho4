@@ -3,6 +3,83 @@
 <head>
     <title>Compras</title>
     <meta charset="UTF-8">
+    
+    <style>
+    /* Estilo geral da página */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    /* Estilo do Cartão/Formulário */
+    form {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        width: 350px;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    label {
+        font-weight: bold;
+        color: #555;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    /* Estilo dos campos de seleção e número */
+    select, input[type="number"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-sizing: border-box; /* Garante que o padding não aumente o tamanho final */
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+    select:focus, input[type="number"]:focus {
+        border-color: #ff6b6b; /* Cor de destaque ao clicar */
+    }
+
+    /* Estilo do Botão */
+    input[type="submit"] {
+        width: 100%;
+        background-color: #ff6b6b;
+        color: white;
+        padding: 14px;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #ee5253;
+        transform: translateY(-2px); /* Efeito de levante ao passar o mouse */
+    }
+
+    input[type="submit"]:active {
+        transform: translateY(0);
+    }
+</style>
+
 </head>
 <body>
 
